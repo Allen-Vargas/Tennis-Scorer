@@ -24,7 +24,9 @@ public class TennisGame2 implements TennisGame
 		{
 		    score = getLiteral(P1point) + "-All";
 		}
-        score = deuce(score);    
+		if (isDeuce())
+			score = "Deuce"; 
+		
         score = advantage(score);
         score = win(score);
         
@@ -77,10 +79,8 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String deuce(String score) {
-		if (P1point==P2point && P1point>=3)
-            score = "Deuce";
-		return score;
+	private boolean isDeuce() {
+		return P1point==P2point && P1point>=3;
 	}
     
     public void SetP1Score(int number){
