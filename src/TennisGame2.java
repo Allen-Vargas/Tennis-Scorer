@@ -82,8 +82,7 @@ public class TennisGame2 implements TennisGame
 	private String normal(String score) {
 		if (P1point > 0 && P2point==0)
         {
-            if (P1point==1)
-                P1res = "Fifteen";
+            P1res = getLiteral(P1point);
             if (P1point==2)
                 P1res = "Thirty";
             if (P1point==3)
@@ -93,6 +92,13 @@ public class TennisGame2 implements TennisGame
             score = P1res + "-" + P2res;
         }
 		return score;
+	}
+	
+	private String getLiteral(int p1point2) {
+		String result="";
+		if (p1point2==1)
+            result = "Fifteen";
+		return result;
 	}
 
 	private String tie(String score) {
