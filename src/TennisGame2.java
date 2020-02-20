@@ -27,11 +27,15 @@ public class TennisGame2 implements TennisGame
     }
 
 	private String normal(String score) {
-		if (P2point!=P1point)
+		if (isNormal())
         {
             score = getLiteral(P1point) + "-" + getLiteral(P2point);
         }
 		return score;
+	}
+
+	private boolean isNormal() {
+		return P2point!=P1point;
 	}
 	
 	private String getLiteral(int p1point2) {
