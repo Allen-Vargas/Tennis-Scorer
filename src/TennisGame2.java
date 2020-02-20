@@ -83,12 +83,10 @@ public class TennisGame2 implements TennisGame
 		if (P1point > 0 && P2point==0)
         {
             P1res = getLiteral(P1point);
-            if (P1point==2)
-                P1res = "Thirty";
-            if (P1point==3)
-                P1res = "Forty";
+            P1res = getLiteral(P1point);
+            P1res = getLiteral(P1point);
             
-            P2res = "Love";
+            P2res = getLiteral(P2point);
             score = P1res + "-" + P2res;
         }
 		return score;
@@ -96,8 +94,14 @@ public class TennisGame2 implements TennisGame
 	
 	private String getLiteral(int p1point2) {
 		String result="";
+		if (p1point2==0)
+			result = "Love";
 		if (p1point2==1)
             result = "Fifteen";
+		if (p1point2==2)
+			result = "Thirty";
+        if (p1point2==3)
+        	result = "Forty";
 		return result;
 	}
 
