@@ -16,18 +16,17 @@ public class TennisGame2 implements TennisGame
 
     public String getScore(){
         String score = "";
-		if (isNormal())
-		{
-		    score = getLiteral(P1point) + "-" + getLiteral(P2point);
-		}
-		if (isTie())
-		{
-		    score = getLiteral(P1point) + "-All";
-		}
-		if (isDeuce())
-			score = "Deuce"; 
-		
-        score = advantage(score);
+			if (isNormal())
+			    score = getLiteral(P1point) + "-" + getLiteral(P2point);
+			if (isTie())
+			    score = getLiteral(P1point) + "-All";
+			if (isDeuce())
+				score = "Deuce";
+			if (isInAdvantageOver(P1point, P2point))
+			    score = "Advantage player1";
+			if (isInAdvantageOver(P2point, P1point))
+			    score = "Advantage player2";
+			
         score = win(score);
         
         return score;
@@ -66,17 +65,8 @@ public class TennisGame2 implements TennisGame
 		return score;
 	}
 
-	private String advantage(String score) {
-		if (P1point > P2point && P2point >= 3)
-        {
-            score = "Advantage player1";
-        }
-        
-        if (P2point > P1point && P1point >= 3)
-        {
-            score = "Advantage player2";
-        }
-		return score;
+	private boolean isInAdvantageOver(int firstPlayerPoints, int secondPlayerPoints) {
+		return firstPlayerPoints > secondPlayerPoints && secondPlayerPoints >= 3;
 	}
 
 	private boolean isDeuce() {
