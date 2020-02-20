@@ -39,19 +39,6 @@ public class TennisGame2 implements TennisGame
 		return player2Points!=player1Points;
 	}
 	
-	private String getLiteral(int playerPoints) {
-		String result="";
-		if (playerPoints==_LOVE)
-			result = "Love";
-		if (playerPoints==_FIFTEEN)
-            result = "Fifteen";
-		if (playerPoints==_THIRTY)
-			result = "Thirty";
-        if (playerPoints==_FORTY)
-        	result = "Forty";
-		return result;
-	}
-
 	private boolean isTie() {
 		return player1Points == player2Points && player1Points < 4;
 	}
@@ -67,23 +54,28 @@ public class TennisGame2 implements TennisGame
 	private boolean isDeuce() {
 		return player1Points==player2Points && player1Points>=3;
 	}
-    
+	
+	private String getLiteral(int playerPoints) {
+		String result="";
+		if (playerPoints==_LOVE)
+			result = "Love";
+		if (playerPoints==_FIFTEEN)
+            result = "Fifteen";
+		if (playerPoints==_THIRTY)
+			result = "Thirty";
+        if (playerPoints==_FORTY)
+        	result = "Forty";
+		return result;
+	}
+
     public void SetP1Score(int number){
-        
         for (int i = 0; i < number; i++)
-        {
-            P1Score();
-        }
-            
+            P1Score();     
     }
     
-    public void SetP2Score(int number){
-        
+    public void SetP2Score(int number){      
         for (int i = 0; i < number; i++)
-        {
-            P2Score();
-        }
-            
+            P2Score();          
     }
     
     public void P1Score(){
