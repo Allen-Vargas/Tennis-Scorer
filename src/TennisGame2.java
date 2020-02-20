@@ -20,12 +20,10 @@ public class TennisGame2 implements TennisGame
 		{
 		    score = getLiteral(P1point) + "-" + getLiteral(P2point);
 		}
-		String score1 = score;
 		if (isTie())
 		{
-		    score1 = getLiteral(P1point) + "-All";
+		    score = getLiteral(P1point) + "-All";
 		}
-        score = score1;
         score = deuce(score);    
         score = advantage(score);
         score = win(score);
