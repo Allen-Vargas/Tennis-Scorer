@@ -20,7 +20,12 @@ public class TennisGame2 implements TennisGame
 		{
 		    score = getLiteral(P1point) + "-" + getLiteral(P2point);
 		}
-        score = tie(score);
+		String score1 = score;
+		if (isTie())
+		{
+		    score1 = getLiteral(P1point) + "-All";
+		}
+        score = score1;
         score = deuce(score);    
         score = advantage(score);
         score = win(score);
@@ -45,12 +50,8 @@ public class TennisGame2 implements TennisGame
 		return result;
 	}
 
-	private String tie(String score) {
-		if (P1point == P2point && P1point < 4)
-        {
-            score = getLiteral(P1point) + "-All";
-        }
-		return score;
+	private boolean isTie() {
+		return P1point == P2point && P1point < 4;
 	}
 
 	private String win(String score) {
